@@ -4,6 +4,12 @@ using namespace std;
 class Deposit {
 public:
     Deposit() {
+        nCount ++;
+        cout << "# of objects: " << nCount << endl;
+    }
+    ~Deposit() {
+        nCount --;
+        cout << "# of objects: " << nCount << endl;
     }
     Deposit(char* name, double balance) {
         strName = name;
@@ -24,12 +30,13 @@ private:
     char *strName;
     double dBalance;
     static double dInterestRate;
+    static int nCount;
 };
 
 double Deposit::dInterestRate = 0.05;
+int Deposit::nCount = 0;
 
 int main(int argc, char **argv) {
-    Deposit::SetInterestRate(0.05);
-    cout << "Modified Interest Rate: " << Deposit::GetInterestRate() << endl;
+    Deposit kim, lee;
     return 0;
 }
