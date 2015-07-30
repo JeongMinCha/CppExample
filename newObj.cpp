@@ -30,9 +30,15 @@ int MousePoint::GetY() const {
 }
 
 int main(int argc, char** argv) {
-    MousePoint *pt;
-    pt = new MousePoint(10, 20);
-    cout << "x position: " << pt->GetX() << ", " <<  "y position: " << pt->GetY() << endl;
-    delete pt;
+    MousePoint *pArr[3];
+    pArr[0] = new MousePoint(10, 20);
+    pArr[1] = new MousePoint(100, 200);
+    pArr[2] = new MousePoint(1000, 2000);
+
+    for (int i = 0; i < 3; i++) {
+        cout << pArr[i]->GetX() << ", " << pArr[i]->GetY() << endl;
+        delete pArr[i];
+    }
+
     return 0;
 }
