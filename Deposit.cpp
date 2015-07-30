@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 class Deposit {
 public:
@@ -15,6 +16,10 @@ public:
     static void SetInterestRate (double dNewRate) {
         dInterestRate = dNewRate;
     }
+    
+    static double GetInterestRate () {
+        return dInterestRate;
+    }
 private:
     char *strName;
     double dBalance;
@@ -24,7 +29,7 @@ private:
 double Deposit::dInterestRate = 0.05;
 
 int main(int argc, char **argv) {
-    Deposit kim, lee;
     Deposit::SetInterestRate(0.05);
+    cout << "Modified Interest Rate: " << Deposit::GetInterestRate() << endl;
     return 0;
 }
